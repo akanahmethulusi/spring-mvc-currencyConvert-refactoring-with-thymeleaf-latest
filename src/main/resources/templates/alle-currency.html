@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alle Wahrungen</title>
+    <style>
+        div.wrapper {
+	padding: 20px;
+	display: block;
+	overflow: auto;
+}
+table.scroll {
+	width: 100%;
+	background-color: #fff;
+}
+table.scroll thead {
+	width: 50%;
+	background: #5dd39e;
+}
+table.scroll thead tr:after {
+	content: '';
+	overflow-y: scroll;
+	visibility: hidden;
+}
+table.scroll thead th {
+	flex: 1 auto;
+	display: block;
+	color: #fff;
+}
+table.scroll tbody {
+	display: block;
+	width: 100%;
+	overflow-y: auto;
+	height: auto;
+	max-height: 200px;
+}
+table.scroll thead tr,
+table.scroll tbody tr {
+	display: flex;
+}
+table.scroll tbody tr td {
+	flex: 1 auto;
+	word-wrap: break;
+}
+table.scroll thead tr th,
+table.scroll tbody tr td {
+	width: 25%;
+	padding: 5px;
+	text-align-left;
+	border-bottom: 1px solid #eee;
+}
+table.scroll tr{
+    width: 50%;
+}
+    </style>
+</head>
+<body>
+    <h2>Alle Wahrungen</h2>
+    <table border="0" cellpadding="0" cellspacing="0" class="scroll">
+        <thead>
+        <tr>
+            <th>Währungscode</th>
+            <th>Kaufkurs</th>
+            <th>Verkaufskurs</th>
+            <th>Type</th>
+            <th>Änderung</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="currency: ${allCurrency}">
+                <td th:text="${currency.key}"></td>
+                <td th:text="${currency.value.buying}" style=""></td>
+                <td th:text="${currency.value.selling}"></td>
+                <td th:text="${currency.value.type}"></td>
+                <td th:text="${currency.value.change}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
