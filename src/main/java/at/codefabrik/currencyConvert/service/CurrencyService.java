@@ -17,14 +17,12 @@ import java.math.RoundingMode;
 @Service
 @AllArgsConstructor
 public class CurrencyService {
-
     private static final String webUrl="https://finans.truncgil.com/v4/today.json";
     private final RestTemplate restTemplate;
-    public CurrencyWrapper getAllCurrency() {
 
+    public CurrencyWrapper getAllCurrency() {
         HttpHeaders headers = new HttpHeaders();
         headers.set("User-Agent", "Mozilla/5.0");
-
         HttpEntity<String> httpEntity = new HttpEntity<>(headers);
 
         ResponseEntity<CurrencyWrapper> response = restTemplate.exchange(webUrl, HttpMethod.GET, httpEntity, CurrencyWrapper.class);
@@ -43,7 +41,7 @@ public class CurrencyService {
         CurrencyEntity toEntity = allCurrency.getCurrencies().get(toCurrency);
 
         if(fromEntity == null || toEntity == null){
-            throw new CurrencyConvertException("ungültiges Währungscode");
+            throw new CurrencyConvertException("Währungscode ungültig!");
         }
 
         BigDecimal fromRate = fromEntity.getBuying();

@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 public class JsonDeserializerFile extends JsonDeserializer {
     @Override
-    public Object deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+    public Object deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         String result = jsonParser.getText().trim();
         return new BigDecimal(result);
     }
