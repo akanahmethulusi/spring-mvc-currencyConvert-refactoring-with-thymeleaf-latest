@@ -13,5 +13,10 @@ Schlüsselaspekte des Projekts
   /convert: durchführt die Währungsumrechnung
   /currencies: listet die alle Währungscodes auf
   /update-date: durchführt die aktuelle Zeit
+
   
+  Wieso?
+  @JsonIgnoreProperties(ignoreUnknown = true)
+  Wenn man mit dynamische API's arbeitet, bei denen sich die Struktur der Daten  häufig ändert,
+  vermeidet diese Annotation "UnrecognizedPropertyException" Exception.
   
