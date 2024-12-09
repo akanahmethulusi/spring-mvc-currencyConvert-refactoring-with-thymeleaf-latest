@@ -17,7 +17,7 @@ import java.math.RoundingMode;
 @Service
 @AllArgsConstructor
 public class CurrencyService {
-    private static final String webUrl="https://finans.truncgil.com/v4/today.json";
+    static final String webUrl="https://finans.truncgil.com/v4/today.json";
     private final RestTemplate restTemplate;
 
     public CurrencyWrapper getAllCurrency() {
